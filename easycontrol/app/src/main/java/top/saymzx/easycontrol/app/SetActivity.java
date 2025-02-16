@@ -38,12 +38,7 @@ public class SetActivity extends Activity {
       AppData.setting.setLocale(AppData.setting.getLocale().equals("en") ? "zh" : "en");
       Toast.makeText(this, getString(R.string.toast_change_locale), Toast.LENGTH_SHORT).show();
     }).getRoot());
-    // 关于
-    activitySetBinding.setAbout.addView(ViewTools.createTextCard(this, getString(R.string.set_about_active), () -> startActivity(new Intent(this, ActiveActivity.class))).getRoot());
-    activitySetBinding.setAbout.addView(ViewTools.createTextCard(this, getString(R.string.set_about_website), () -> PublicTools.startUrl(this, "https://gitee.com/mingzhixianweb/easycontrol")).getRoot());
-    activitySetBinding.setAbout.addView(ViewTools.createTextCard(this, getString(R.string.set_about_privacy), () -> PublicTools.startUrl(this, "https://gitee.com/mingzhixianweb/easycontrol/blob/master/PRIVACY.md")).getRoot());
-    activitySetBinding.setAbout.addView(ViewTools.createTextCard(this, getString(R.string.set_about_version) + BuildConfig.VERSION_NAME, () -> PublicTools.startUrl(this, "https://gitee.com/mingzhixianweb/easycontrol/releases/latest")).getRoot());
-  }
+   }
 
   // 设置按钮监听
   private void setButtonListener() {

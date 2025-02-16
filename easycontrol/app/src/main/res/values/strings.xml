@@ -17,7 +17,6 @@
   <string name="set_other_reset_key">重置密钥</string>
   <string name="set_other_ip">查看本机IP</string>
   <string name="set_other_locale">语言切换(中文/English)</string>
-  <string name="set_about_active">取消激活</string>
   <string name="set_about_website">项目主页</string>
   <string name="set_about_privacy">隐私政策</string>
   <string name="set_about_version">版本: </string>
@@ -30,19 +29,6 @@
   <string name="adb_key_pub">公钥(Base64编码)</string>
   <string name="adb_key_pri">私钥(Base64编码)</string>
   <string name="adb_key_button">保存</string>
-
-  <!-- 激活页面 -->
-  <string name="active_url">前往捐赠地址</string>
-  <string name="active_key">捐赠订单号: 35元及以上</string>
-  <string name="active_button">激活</string>
-  <string name="active_hint">
-    * 捐赠后将于24小时内录入系统，请耐心等待 \n
-    * 易控是买断制，不限制使用数量，但为了防止盗刷，单账号默认限制5台设备 \n
-    * 为了保护您的隐私，易控使用了随机数标识一台设备，这意味着重装软件也会被视为新设备 \n
-    * 如果您无法激活，请联系我 \n
-    * 邮箱：mingzhixian@outlook.com \n
-    * QQ：1963402801
-  </string>
 
   <!-- 设备添加页面 -->
   <string name="device_uuid">点击复制设备ID</string>

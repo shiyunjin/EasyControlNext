@@ -17,7 +17,6 @@
   <string name="set_other_reset_key">Reset ADB key</string>
   <string name="set_other_ip">IP addresses</string>
   <string name="set_other_locale">Change language(中文/English)</string>
-  <string name="set_about_active">Deactivate</string>
   <string name="set_about_website">Homepage</string>
   <string name="set_about_privacy">Privacy Policy</string>
   <string name="set_about_version">Version: </string>
@@ -30,18 +29,6 @@
   <string name="adb_key_pub">Public key (Base64)</string>
   <string name="adb_key_pri">Private key (Base64)</string>
   <string name="adb_key_button">Save</string>
-
-  <!-- 激活页面 -->
-  <string name="active_url">Donation Link</string>
-  <string name="active_key">Donation Order number: $5 and up</string>
-  <string name="active_button">Activate</string>
-  <string name="active_hint">
-    * Your donation will be updated into our server within 24 hours. \n
-    * One account can activate EasyControl on 5 different devices, no extra payments. \n
-    * EasyControl use random generated sequences as device identifier, reinstalling app will require activation.\n
-    * If you encountered devices quota limit or other problems, please contact us \n
-    * E-mail: mingzhixian@outlook.com
-  </string>
 
   <!-- 设备添加页面 -->
   <string name="device_uuid">Touch to copy ID</string>
