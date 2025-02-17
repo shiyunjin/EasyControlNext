@@ -38,6 +38,16 @@
       tools:ignore="RtlSymmetry">
 
       <ImageView
+        android:id="@+id/button_back"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:focusable="false"
+        android:padding="4dp"
+        android:src="@drawable/caret_left"
+        android:tint="@color/onCardBackground" />
+
+      <ImageView
         android:id="@+id/button_switch"
         android:layout_width="0dp"
         android:layout_height="match_parent"
@@ -55,16 +65,6 @@
         android:focusable="false"
         android:padding="4dp"
         android:src="@drawable/o"
-        android:tint="@color/onCardBackground" />
-
-      <ImageView
-        android:id="@+id/button_back"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:focusable="false"
-        android:padding="4dp"
-        android:src="@drawable/caret_left"
         android:tint="@color/onCardBackground" />
 
     </LinearLayout>
