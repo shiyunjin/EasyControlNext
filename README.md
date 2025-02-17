@@ -2,7 +2,7 @@
 
 I just removed the activation restriction and forced donation part of the code. 
 
-If you love this app, donate to the original author(mingzhixian) and show your appreciation there.
+If you love this app, [donate](https://github.com/mingzhixian/Easycontrol/blob/master/DONATE.md) to the original author(mingzhixian) and show your appreciation there. 
 
 I just wanted to build something myself because of the sensitive nature of the task (remote control) and didn't want app to fetch anything or check anything from other remote servers.
 
