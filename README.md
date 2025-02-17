@@ -14,14 +14,14 @@ There are bunch of options you can change for a device while adding a device, re
 
 **This has been tested to work on Android Phone (Android 9+) and Philips Android TV (based on Android 11 for TV) only if you are using Android device in your car, or VR headset or some other Android device it might change some screen awake time, screen resolution settings which can break the device**
 
-To recover screen resolution
+To recover device's screen resolution
 ```
 adb shell wm size RESOLUTION_WIDTH x RESOLUTION_HEIGHT
 ```
 
 To fix screen off timeout
 ```
-settings put system screen_off_timeout 60
+adb shell settings put system screen_off_timeout 60
 ```
 
 I have changed the fork's package named from `top.saymzx.easycontrol` to `com.daitj.easycontrolfork` as not to have issues when both are installed. 
