@@ -1,0 +1,1 @@
+EasyControlFork is scrcpy implemenation, which will allow users to control other android devices from an android device. This will basically allow users to remotely control another android device.
