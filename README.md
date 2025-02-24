@@ -12,7 +12,7 @@ Remote control your android phone using another android phone, this uses scrcpy'
 There are bunch of options you can change for a device while adding a device, remember to check those carefully.
 
 
-**This has been tested to work on Android Phone (Android 9+) and Philips Android TV (based on Android 11 for TV) only if you are using Android device in your car, or VR headset or some other Android device it might change some screen awake time, screen resolution settings which can break the device**
+**This has been tested to work on Android Phone (Android 9+) and Philips Android TV (based on Android 11 for TV) only if you are using Android device in your car, or VR headset like (Quest) or some other Android device it might change some screen awake time, screen resolution settings which can break the device**
 
 To recover device's screen resolution
 ```
@@ -22,6 +22,11 @@ adb shell wm size RESOLUTION_WIDTH x RESOLUTION_HEIGHT
 To fix screen off timeout
 ```
 adb shell settings put system screen_off_timeout 60
+```
+
+Quest 3's default settings:
+```
+adb shell settings put system screen_off_timeout 86400000
 ```
 
 I have changed the fork's package named from `top.saymzx.easycontrol` to `com.daitj.easycontrolfork` as not to have issues when both are installed. 
