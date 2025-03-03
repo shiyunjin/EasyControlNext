@@ -1,0 +1,2 @@
+- Removed unnecessary android.permission.READ_EXTERNAL_STORAGE permission
+- Removed unnecessary usesCleartextTraffic flag
