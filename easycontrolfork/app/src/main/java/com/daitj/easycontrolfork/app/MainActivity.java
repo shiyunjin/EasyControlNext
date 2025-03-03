@@ -8,6 +8,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.OpenableColumns;
+import androidx.documentfile.provider.DocumentFile;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -73,17 +74,12 @@ public class MainActivity extends Activity {
       if (uri == null) deviceListAdapter.pushFile(null, null);
       ;
       try {
+        DocumentFile documentFile = DocumentFile.fromSingleUri(this, uri);
         String fileName = "easycontrolfork_push_file";
-        ContentResolver contentProvider = getContentResolver();
-        InputStream inputStream = contentProvider.openInputStream(uri);
-        //根据Uri查询文件名
-        try (Cursor cursor = contentProvider.query(uri, null, null, null, null)) {
-          if (cursor != null) {
-            cursor.moveToFirst();
-            int nameIndex = cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME);
-            fileName = cursor.getString(nameIndex);
-          }
+        if (documentFile != null && documentFile.getName() != null) {
+          fileName = documentFile.getName();
         }
+        InputStream inputStream = getContentResolver().openInputStream(uri);
         deviceListAdapter.pushFile(inputStream, fileName);
       } catch (IOException ignored) {
         deviceListAdapter.pushFile(null, null);
