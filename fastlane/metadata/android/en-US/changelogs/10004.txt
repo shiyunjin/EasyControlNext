@@ -1,0 +1,2 @@
+- Moved values-en/strings.xml to values/strings.xml
+- Moved values/strings.xml to values-zh/strings.xml
