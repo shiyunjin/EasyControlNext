@@ -4,6 +4,7 @@
 package com.daitj.easycontrolfork.server.helper;
 
 import android.graphics.Rect;
+import android.hardware.display.VirtualDisplay;
 import android.media.MediaCodec;
 import android.media.MediaCodecInfo;
 import android.media.MediaFormat;
@@ -19,6 +20,7 @@ import java.nio.ByteBuffer;
 import com.daitj.easycontrolfork.server.Server;
 import com.daitj.easycontrolfork.server.entity.Device;
 import com.daitj.easycontrolfork.server.entity.Options;
+import com.daitj.easycontrolfork.server.wrappers.DisplayManager;
 import com.daitj.easycontrolfork.server.wrappers.SurfaceControl;
 
 public final class VideoEncode {
@@ -29,6 +31,8 @@ public final class VideoEncode {
 
   private static IBinder display;
 
+  private static VirtualDisplay virtualDisplay;
+
   public static void init() throws InvocationTargetException, NoSuchMethodException, IllegalAccessException, IOException, ErrnoException {
     useH265 = Options.supportH265 && EncodecTools.isSupportH265();
     ByteBuffer byteBuffer = ByteBuffer.allocate(9);
@@ -37,8 +41,6 @@ public final class VideoEncode {
     byteBuffer.putInt(Device.videoSize.second);
     byteBuffer.flip();
     Server.writeVideo(byteBuffer);
-    // 创建显示器
-    display = SurfaceControl.createDisplay("easycontrol", Build.VERSION.SDK_INT < Build.VERSION_CODES.R || (Build.VERSION.SDK_INT == Build.VERSION_CODES.R && !"S".equals(Build.VERSION.CODENAME)));
     // 创建Codec
     createEncodecFormat();
     startEncode();
@@ -67,8 +69,17 @@ public final class VideoEncode {
     encodecFormat.setInteger(MediaFormat.KEY_HEIGHT, Device.videoSize.second);
     encedec.configure(encodecFormat, null, null, MediaCodec.CONFIGURE_FLAG_ENCODE);
     // 绑定Display和Surface
+
     surface = encedec.createInputSurface();
-    setDisplaySurface(display, surface);
+
+    // 创建显示器
+    try {
+      virtualDisplay = DisplayManager.createVirtualDisplay("easycontrol", Device.displayInfo.width, Device.displayInfo.height, Device.displayInfo.density, surface);
+    } catch (Exception displayManagerException) {
+      display = SurfaceControl.createDisplay("easycontrol", Build.VERSION.SDK_INT < Build.VERSION_CODES.R || (Build.VERSION.SDK_INT == Build.VERSION_CODES.R && !"S".equals(Build.VERSION.CODENAME)));
+      setDisplaySurface(display, surface);
+    }
+
     // 启动编码
     encedec.start();
   }
@@ -77,6 +88,18 @@ public final class VideoEncode {
     encedec.stop();
     encedec.reset();
     surface.release();
+
+    try {
+      if (display != null) {
+        SurfaceControl.destroyDisplay(display);
+        display = null;
+      }
+      if (virtualDisplay != null) {
+          virtualDisplay.release();
+          virtualDisplay = null;
+      }
+    } catch (Exception ignored) {
+    }
   }
 
   private static void setDisplaySurface(IBinder display, Surface surface) throws InvocationTargetException, NoSuchMethodException, IllegalAccessException {
@@ -109,7 +132,16 @@ public final class VideoEncode {
     try {
       stopEncode();
       encedec.release();
-      SurfaceControl.destroyDisplay(display);
+
+      if (display != null) {
+        SurfaceControl.destroyDisplay(display);
+        display = null;
+      }
+
+      if (virtualDisplay != null) {
+        virtualDisplay.release();
+        virtualDisplay = null;
+      }
     } catch (Exception ignored) {
     }
   }

@@ -10,6 +10,7 @@ import android.os.Build;
 import android.view.Display;
 import android.view.Surface;
 
+import java.lang.reflect.Method;
 import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -78,5 +79,20 @@ public final class DisplayManager {
     Surface surface = MediaCodec.createPersistentInputSurface();
     android.hardware.display.DisplayManager displayManager = android.hardware.display.DisplayManager.class.getDeclaredConstructor(Context.class).newInstance(FakeContext.get());
     return displayManager.createVirtualDisplay("easycontrol", realDisplayinfo.width, realDisplayinfo.height, realDisplayinfo.density, surface, flags);
+  }
+
+  private static Method createVirtualDisplayMethod;
+  private static Method getCreateVirtualDisplayMethod() throws NoSuchMethodException {
+    if (createVirtualDisplayMethod == null) {
+      createVirtualDisplayMethod = android.hardware.display.DisplayManager.class
+              .getMethod("createVirtualDisplay", String.class, int.class, int.class, int.class, Surface.class);
+    }
+    return createVirtualDisplayMethod;
+  }
+
+  public static VirtualDisplay createVirtualDisplay(String name, int width, int height, int displayIdToMirror, Surface surface) throws Exception {
+    Method method = getCreateVirtualDisplayMethod();
+
+    return (VirtualDisplay) method.invoke(null, name, width, height, displayIdToMirror, surface);
   }
 }
