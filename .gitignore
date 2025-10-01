@@ -6,6 +6,7 @@ easycontrolnext/.gradle
 easycontrolnext/.idea
 easycontrolnext/local.properties
 
+easycontrolnext/build
 easycontrolnext/app/build
 easycontrolnext/app/.gradle
 easycontrolnext/app/debug

@@ -44,8 +44,8 @@ android {
       buildConfigField "boolean", "ENABLE_DEBUG_FEATURE", "false"
       manifestPlaceholders = [app_name: "@string/app_name", app_icon: "@mipmap/ic_launcher", app_icon_round: "@mipmap/ic_launcher_round"]
       debuggable false
-      minifyEnabled true
-      shrinkResources true
+      minifyEnabled false
+      shrinkResources false
       proguardFiles 'proguard-rules.pro'
       signingConfig signingConfigs.release
     }
