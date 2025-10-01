@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-  namespace 'com.shiyunjin.easycontrolnext.server'
+  namespace = 'com.shiyunjin.easycontrolnext.server'
     compileSdk 36
 
     defaultConfig {
-    minSdk 21
+    minSdk = 21
     targetSdk 34
     applicationId 'com.shiyunjin.easycontrolnext.server'
     versionCode 20002
@@ -21,7 +21,7 @@ android {
       }
       debuggable false
       minifyEnabled true
-      shrinkResources true
+      shrinkResources = true
       proguardFiles 'proguard-rules.pro'
     }
   }
@@ -38,14 +38,14 @@ android {
     includeInBundle = false
   }
 
-  task copyRelease(type: Copy) {
+  tasks.register('copyRelease', Copy) {
     dependsOn 'assembleRelease'
     from file('build/outputs/apk/release/server-release-unsigned.apk')
     into file('../app/src/main/res/raw/')
     rename('server-release-unsigned.apk', 'easycontrolnext_server.jar')
   }
 
-  task copyDebug(type: Copy) {
+  tasks.register('copyDebug', Copy) {
     dependsOn 'assembleDebug'
     from file("build/outputs/apk/debug/server-debug.apk")
     into file('../app/src/main/res/raw/')
@@ -53,7 +53,7 @@ android {
   }
 
   buildFeatures {
-    aidl true
+    aidl = true
   }
 }
 
