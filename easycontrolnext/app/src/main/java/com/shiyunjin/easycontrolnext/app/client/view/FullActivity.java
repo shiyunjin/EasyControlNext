@@ -13,6 +13,8 @@ import android.text.InputType;
 import android.view.KeyEvent;
 import android.view.View;
 
+import androidx.annotation.NonNull;
+
 import java.nio.ByteBuffer;
 import java.util.Objects;
 
@@ -64,6 +66,22 @@ public class FullActivity extends Activity implements SensorEventListener {
     activityFullBinding.textureViewLayout.post(this::updateMaxSize);
     // 页面自动旋转
     AppData.sensorManager.registerListener(this, AppData.sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_NORMAL);
+    // 监听窗口大小
+    onLayoutChange = new View.OnLayoutChangeListener() {
+      @Override
+      public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
+        updateMaxSize();
+      }
+    };
+  }
+
+  protected View.OnLayoutChangeListener onLayoutChange;
+
+  @Override
+  protected void onResume() {
+    super.onResume();
+
+    activityFullBinding.textureViewLayout.addOnLayoutChangeListener(onLayoutChange);
   }
 
   @Override
@@ -72,6 +90,8 @@ public class FullActivity extends Activity implements SensorEventListener {
     if (isChangingConfigurations()) activityFullBinding.textureViewLayout.removeView(clientController.getTextureView());
     else if (!isClose) clientController.handleAction(device.fullToMiniOnRunning ? "changeToMini" : "changeToSmall", ByteBuffer.wrap("changeToFull".getBytes()), 0);
     super.onPause();
+
+    activityFullBinding.textureViewLayout.removeOnLayoutChangeListener(onLayoutChange);
   }
 
   @Override
