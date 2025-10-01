@@ -1,4 +1,6 @@
-# This is a hard fork from original [https://github.com/daitj/Easycontrol](https://github.com/mingzhixian/Easycontrol) 
+# This is a hard fork from original 
+ * [https://github.com/daitj/Easycontrol](https://github.com/daitj/Easycontrol) 
+ * [https://github.com/mingzhixian/Easycontrol](https://github.com/mingzhixian/Easycontrol)
 
 To Support Android 11+(pair code)
 
