@@ -1,0 +1,61 @@
+plugins {
+  id 'com.android.application' version '8.13.0'
+}
+
+android {
+  namespace 'com.shiyunjin.easycontrolnext.server'
+    compileSdk 36
+
+    defaultConfig {
+    minSdk 21
+    targetSdk 34
+    applicationId 'com.shiyunjin.easycontrolnext.server'
+    versionCode 20002
+    versionName '2.0.2'
+  }
+
+  buildTypes {
+    release {
+      ndk {
+        abiFilters "arm64-v8a", "armeabi-v7a", "x86", "x86_64"
+      }
+      debuggable false
+      minifyEnabled true
+      shrinkResources true
+      proguardFiles 'proguard-rules.pro'
+    }
+  }
+
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_17
+    targetCompatibility JavaVersion.VERSION_17
+  }
+
+  dependenciesInfo {
+    // Disables dependency metadata when building APKs.
+    includeInApk = false
+    // Disables dependency metadata when building Android App Bundles.
+    includeInBundle = false
+  }
+
+  task copyRelease(type: Copy) {
+    dependsOn 'assembleRelease'
+    from file('build/outputs/apk/release/server-release-unsigned.apk')
+    into file('../app/src/main/res/raw/')
+    rename('server-release-unsigned.apk', 'easycontrolnext_server.jar')
+  }
+
+  task copyDebug(type: Copy) {
+    dependsOn 'assembleDebug'
+    from file("build/outputs/apk/debug/server-debug.apk")
+    into file('../app/src/main/res/raw/')
+    rename('server-debug.apk', 'easycontrolnext_server.jar')
+  }
+
+  buildFeatures {
+    aidl true
+  }
+}
+
+dependencies {
+}

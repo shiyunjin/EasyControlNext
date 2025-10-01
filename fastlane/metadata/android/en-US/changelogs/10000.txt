@@ -1,4 +1,0 @@
-- Initial release from a hardfork from original author
-- Removed forced donation
-- New icon for the fork
-- New package name to avoid naming conflicts

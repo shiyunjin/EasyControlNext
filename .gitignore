@@ -1,16 +1,18 @@
 keystore.properties
+build.jks
 
-easycontrolfork/*.iml
-easycontrolfork/.gradle
-easycontrolfork/.idea
-easycontrolfork/local.properties
+easycontrolnext/*.iml
+easycontrolnext/.gradle
+easycontrolnext/.idea
+easycontrolnext/local.properties
 
-easycontrolfork/app/build
-easycontrolfork/app/.gradle
-easycontrolfork/app/debug
-easycontrolfork/app/release
-easycontrolfork/app/src/main/res/raw/easycontrolfork_server.jar
+easycontrolnext/app/build
+easycontrolnext/app/.gradle
+easycontrolnext/app/debug
+easycontrolnext/app/build
+easycontrolnext/app/release
+easycontrolnext/app/src/main/res/raw/easycontrolnext_server.jar
 
-easycontrolfork/server/build
-easycontrolfork/server/.gradle
+easycontrolnext/server/build
+easycontrolnext/server/.gradle
 

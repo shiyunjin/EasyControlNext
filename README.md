@@ -1,12 +1,8 @@
-# This is a hard fork from original [https://github.com/mingzhixian/Easycontrol](https://github.com/mingzhixian/Easycontrol) 
+# This is a hard fork from original [https://github.com/daitj/Easycontrol](https://github.com/mingzhixian/Easycontrol) 
 
-I just removed the activation restriction and forced donation part of the code. 
+To Support Android 11+(pair code)
 
-If you love this app, [donate](https://github.com/mingzhixian/Easycontrol/blob/master/DONATE.md) to the original author(mingzhixian) and show your appreciation there. 
-
-I just wanted to build something myself because of the sensitive nature of the task (remote control) and didn't want app to fetch anything or check anything from other remote servers.
-
-# Easycontrol Fork
+# Easycontrol Next
 Remote control your android phone using another android phone, this uses scrcpy's server code which was modified by original author to work with this application. 
 
 There are bunch of options you can change for a device while adding a device, remember to check those carefully.
@@ -29,7 +25,7 @@ Quest 3's default settings:
 adb shell settings put system screen_off_timeout 86400000
 ```
 
-I have changed the fork's package named from `top.saymzx.easycontrol` to `com.daitj.easycontrolfork` as not to have issues when both are installed. 
+I have changed the fork's package named from `com.daitj.easycontrolfork` to `com.shiyunjin.easycontrolnext` as not to have issues when both are installed. 
 
 # Audit Report of original code
 
@@ -41,12 +37,12 @@ List of adb commands this application used are
 - To get details of the device display like resolution, density etc `dumpsys display`
 
 Then to run the server in the device, it uses adb command to
-- Delete `/data/local/tmp/easycontrolfork_*` if it exists
-- Copy `easycontrolfork_server.jar` to `/data/local/tmp/easycontrolfork_server.jar`
-  `easycontrolfork_server.jar` is built from `server` project as unsigned apk `server-release-unsigned.apk` and then copied over as `app/src/main/res/raw/easycontrolfork_server.jar`
+- Delete `/data/local/tmp/easycontrolnext_*` if it exists
+- Copy `easycontrolnext_server.jar` to `/data/local/tmp/easycontrolnext_server.jar`
+  `easycontrolnext_server.jar` is built from `server` project as unsigned apk `server-release-unsigned.apk` and then copied over as `app/src/main/res/raw/easycontrolnext_server.jar`
 - Shell command `app_process` is used to run server process
 ```
-app_process -Djava.class.path=" + serverName + " / com.daitj.easycontrolfork.server.Server"
+app_process -Djava.class.path=" + serverName + " / com.daitj.easycontrolnext.server.Server"
       + " serverPort=" + device.serverPort
       + " listenClip=" + (device.listenClip ? 1 : 0)
       + " isAudio=" + (device.isAudio ? 1 : 0)
@@ -71,7 +67,7 @@ am display move-stack " + appStackId + " " + displayId
 # Debug Build
 In GNU/Linux
 ```
-cd easycontrolfork
+cd easycontrolnext
 # build server
 ./gradlew assembleDebug -p server
 # copy server to app

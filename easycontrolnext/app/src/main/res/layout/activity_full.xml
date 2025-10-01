@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="@color/blackBacnground"
+  android:keepScreenOn="true"
+  tools:context="com.shiyunjin.easycontrolnext.app.client.view.FullActivity">
+
+  <EditText
+    android:id="@+id/edit_text"
+    android:layout_width="10dp"
+    android:layout_height="10dp"
+    android:inputType="textVisiblePassword" />
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+      android:id="@+id/texture_view_layout"
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_weight="1"
+      android:gravity="center"
+      android:orientation="horizontal" />
+
+    <LinearLayout
+      android:id="@+id/nav_bar"
+      android:layout_width="match_parent"
+      android:layout_height="40dp"
+      android:layout_gravity="bottom"
+      android:background="@color/background"
+      android:gravity="center"
+      android:orientation="horizontal"
+      android:paddingStart="60dp"
+      android:paddingEnd="20dp">
+
+      <ImageView
+        android:id="@+id/button_back"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:focusable="false"
+        android:padding="4dp"
+        android:src="@drawable/caret_left"
+        android:tint="@color/onBackground" />
+
+      <ImageView
+        android:id="@+id/button_home"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:focusable="false"
+        android:padding="4dp"
+        android:src="@drawable/o"
+        android:tint="@color/onBackground" />
+
+      <ImageView
+        android:id="@+id/button_switch"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:focusable="false"
+        android:padding="4dp"
+        android:src="@drawable/square"
+        android:tint="@color/onBackground" />
+
+      <ImageView
+        android:id="@+id/button_auto_rotate"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:focusable="false"
+        android:padding="4dp"
+        android:src="@drawable/un_auto"
+        android:tint="@color/onCardBackground" />
+
+    </LinearLayout>
+  </LinearLayout>
+
+  <ImageView
+    android:id="@+id/button_more"
+    android:layout_width="60dp"
+    android:layout_height="40dp"
+    android:layout_gravity="bottom|start"
+    android:focusable="false"
+    android:padding="2dp"
+    android:paddingStart="20dp"
+    android:src="@drawable/more"
+    android:tint="@color/onCardBackground" />
+
+  <LinearLayout
+    android:id="@+id/bar_view"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom|start"
+    android:layout_marginStart="25dp"
+    android:layout_marginBottom="60dp"
+    android:background="@drawable/background_cron"
+    android:elevation="6dp"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <LinearLayout
+      android:layout_width="160dp"
+      android:layout_height="40dp"
+      android:orientation="horizontal">
+
+      <ImageView
+        android:id="@+id/button_app"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:focusable="false"
+        android:padding="4dp"
+        android:src="@drawable/share"
+        android:tint="@color/onCardBackground" />
+
+      <ImageView
+        android:id="@+id/button_mini"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:focusable="false"
+        android:padding="4dp"
+        android:src="@drawable/minus"
+        android:tint="@color/onCardBackground" />
+
+      <ImageView
+        android:id="@+id/button_small"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:focusable="false"
+        android:padding="4dp"
+        android:src="@drawable/window_restore"
+        android:tint="@color/onCardBackground" />
+
+      <ImageView
+        android:id="@+id/button_close"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:focusable="false"
+        android:padding="4dp"
+        android:src="@drawable/x"
+        android:tint="@color/alert" />
+    </LinearLayout>
+
+    <LinearLayout
+      android:layout_width="160dp"
+      android:layout_height="40dp"
+      android:orientation="horizontal">
+
+      <ImageView
+        android:id="@+id/button_rotate"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:focusable="false"
+        android:padding="4dp"
+        android:src="@drawable/horizontal_rotate"
+        android:tint="@color/onCardBackground" />
+
+      <ImageView
+        android:id="@+id/button_nav_bar"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:focusable="false"
+        android:padding="4dp"
+        android:src="@drawable/not_equal"
+        android:tint="@color/onCardBackground" />
+
+      <ImageView
+        android:id="@+id/button_power"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:focusable="false"
+        android:padding="4dp"
+        android:src="@drawable/power"
+        android:tint="@color/onCardBackground" />
+
+      <ImageView
+        android:id="@+id/button_light"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:focusable="false"
+        android:padding="4dp"
+        android:src="@drawable/lightbulb_off"
+        android:tint="@color/onCardBackground" />
+    </LinearLayout>
+
+  </LinearLayout>
+</FrameLayout>
