@@ -1,0 +1,3 @@
+- fix: support Android 16 Display Manager
+- feat: support pair code
+- feat: sync view size with window size changes

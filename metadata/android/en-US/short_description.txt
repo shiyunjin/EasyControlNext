@@ -1,0 +1,1 @@
+EasyControlNext remote control solution from Android to Android. Support Android 11+, Pair Code.
