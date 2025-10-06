@@ -20,3 +20,6 @@
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
 -keep class com.shiyunjin.easycontrolnext.*
+
+# Don't minify Spake2 library
+-keep public class io.github.muntashirakon.crypto.spake2.** { *; }
