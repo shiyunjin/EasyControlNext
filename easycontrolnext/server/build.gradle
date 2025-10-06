@@ -4,7 +4,7 @@ plugins {
 
 android {
   namespace = 'com.shiyunjin.easycontrolnext.server'
-    compileSdk 36
+    compileSdk = 36
 
     defaultConfig {
     minSdk = 21

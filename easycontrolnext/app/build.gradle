@@ -10,7 +10,7 @@ if (keystorePropertiesFile.exists()) {
 
 android {
   namespace = 'com.shiyunjin.easycontrolnext.app'
-  compileSdk 34
+  compileSdk = 36
 
   defaultConfig {
     applicationId "com.shiyunjin.easycontrolnext.app"
