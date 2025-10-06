@@ -77,6 +77,19 @@ cd easycontrolnext
 # build app
 ./gradlew assembleDebug
 ```
+
+# Release Build
+In GNU/Linux
+```
+cd easycontrolnext
+# build server
+./gradlew assembleRelease -p server
+# copy server to app
+./gradlew copyRelease -p server
+# build app
+./gradlew assembleRelease
+```
+
 # Credits from original author
 [ADB protocol description](https://github.com/cstyan/adbDocumentation) (the official document is really bad, thanks to the cstyan). 
 

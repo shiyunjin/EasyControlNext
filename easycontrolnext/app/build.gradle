@@ -4,7 +4,9 @@ plugins {
 
 def keystorePropertiesFile = rootProject.file('../keystore.properties')
 def keystoreProperties = new Properties()
-keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+if (keystorePropertiesFile.exists()) {
+  keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+}
 
 android {
   namespace = 'com.shiyunjin.easycontrolnext.app'
@@ -27,10 +29,14 @@ android {
   
   signingConfigs {
       release {
+        if (keystorePropertiesFile.exists()) {
           storeFile file(keystoreProperties['MY_KEYSTORE_FILE'])
           storePassword keystoreProperties['MY_KEYSTORE_PASSWORD']
           keyAlias keystoreProperties['MY_KEY_ALIAS']
           keyPassword keystoreProperties['MY_KEY_PASSWORD']
+        } else {
+          println "Keystore properties file not found. No signing configuration will be applied."
+        }
       }
   }
 
