@@ -4,7 +4,7 @@
 
 To Support Android 11+(pair code)
 
-# Easycontrol Next
+# Easy Control Next
 Remote control your android phone using another android phone, this uses scrcpy's server code which was modified by original author to work with this application. 
 
 There are bunch of options you can change for a device while adding a device, remember to check those carefully.
@@ -44,7 +44,7 @@ Then to run the server in the device, it uses adb command to
   `easycontrolnext_server.jar` is built from `server` project as unsigned apk `server-release-unsigned.apk` and then copied over as `app/src/main/res/raw/easycontrolnext_server.jar`
 - Shell command `app_process` is used to run server process
 ```
-app_process -Djava.class.path=" + serverName + " / com.daitj.easycontrolnext.server.Server"
+app_process -Djava.class.path=" + serverName + " / com.shiyunjin.easycontrolnext.server.Server"
       + " serverPort=" + device.serverPort
       + " listenClip=" + (device.listenClip ? 1 : 0)
       + " isAudio=" + (device.isAudio ? 1 : 0)
