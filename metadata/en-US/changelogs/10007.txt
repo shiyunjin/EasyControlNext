@@ -1,0 +1,4 @@
+- feat: support Android 16K Pagesize
+- build: change compileSdk version to 36
+- feat: remove unused permission
+- feat: add F-Droid metadata
