@@ -13,6 +13,11 @@ Remote control your android phone using another android phone, this uses scrcpy'
 There are bunch of options you can change for a device while adding a device, remember to check those carefully.
 
 
+## Download
+[<img src="https://github.com/machiav3lli/oandbackupx/blob/034b226cea5c1b30eb4f6a6f313e4dadcbb0ece4/badge_github.png" alt='Get it on GitHub' height="80">](https://github.com/shiyunjin/EasyControlNext/releases/latest)
+[<img src="https://gitlab.com/IzzyOnDroid/repo/-/raw/master/assets/IzzyOnDroid.png" alt="Get it on IzzyOnDroid" height="80">](https://apt.izzysoft.de/packages/com.shiyunjin.easycontrolnext.app)
+
+
 **This has been tested to work on Android Phone (Android 9+) and Philips Android TV (based on Android 11 for TV) only if you are using Android device in your car, or VR headset like (Quest) or some other Android device it might change some screen awake time, screen resolution settings which can break the device**
 
 To recover device's screen resolution
