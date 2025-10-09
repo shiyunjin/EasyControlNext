@@ -1,1 +1,0 @@
-易控•远程控制Next 是一个 scrcpy 实现，它允许用户从一台 Android 设备控制其他 Android 设备。这基本上允许用户远程控制另一台 Android 设备。
