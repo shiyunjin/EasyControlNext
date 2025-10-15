@@ -50,8 +50,8 @@ android {
       buildConfigField "boolean", "ENABLE_DEBUG_FEATURE", "false"
       manifestPlaceholders = [app_name: "@string/app_name", app_icon: "@mipmap/ic_launcher", app_icon_round: "@mipmap/ic_launcher_round"]
       debuggable false
-      minifyEnabled true
-      shrinkResources = true
+      minifyEnabled false
+      shrinkResources = false
       proguardFiles 'proguard-rules.pro'
       if (keystorePropertiesFile.exists()) {
         signingConfig = signingConfigs.release
@@ -84,7 +84,7 @@ android {
 
 dependencies {
   implementation 'androidx.documentfile:documentfile:1.1.0'
-  implementation 'org.lsposed.hiddenapibypass:hiddenapibypass:6.1'
+  implementation 'org.conscrypt:conscrypt-android:2.5.3'
   implementation 'com.github.MuntashirAkon:sun-security-android:1.1'
 
   implementation "androidx.annotation:annotation:1.9.1"
