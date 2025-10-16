@@ -205,6 +205,5 @@ public class ClientStream {
       mainBufferStream.close();
       videoBufferStream.close();
     }
-    adb.close();
   }
 }

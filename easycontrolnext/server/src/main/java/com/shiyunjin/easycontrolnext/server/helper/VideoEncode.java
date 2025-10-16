@@ -16,6 +16,7 @@ import android.view.Surface;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.nio.ByteBuffer;
+import java.util.Objects;
 
 import com.shiyunjin.easycontrolnext.server.Server;
 import com.shiyunjin.easycontrolnext.server.entity.Device;
@@ -74,9 +75,9 @@ public final class VideoEncode {
 
     // 创建显示器
     try {
-      virtualDisplay = DisplayManager.createVirtualDisplay("easycontrol", Device.displayInfo.width, Device.displayInfo.height, Device.displayInfo.density, surface);
+      virtualDisplay = DisplayManager.createVirtualDisplay("easycontrolnext", Device.displayInfo.width, Device.displayInfo.height, Device.displayInfo.displayId, surface);
     } catch (Exception displayManagerException) {
-      display = SurfaceControl.createDisplay("easycontrol", Build.VERSION.SDK_INT < Build.VERSION_CODES.R || (Build.VERSION.SDK_INT == Build.VERSION_CODES.R && !"S".equals(Build.VERSION.CODENAME)));
+      display = SurfaceControl.createDisplay("easycontrolnext", Build.VERSION.SDK_INT < Build.VERSION_CODES.R || (Build.VERSION.SDK_INT == Build.VERSION_CODES.R && !"S".equals(Build.VERSION.CODENAME)));
       setDisplaySurface(display, surface);
     }
 
