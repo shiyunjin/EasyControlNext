@@ -75,6 +75,9 @@ android {
 
   packagingOptions {
     resources.excludes.add("META-INF/*")
+    // Unable to strip the following libraries, packaging them as they are:
+    jniLibs.keepDebugSymbols.add("**/libconscrypt_jni.so")
+    jniLibs.keepDebugSymbols.add("**/libspake2.so")
   }
   buildFeatures {
     buildConfig = true
