@@ -12,13 +12,19 @@ import java.security.KeyFactory;
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
 import java.security.PrivateKey;
+import java.security.Provider;
 import java.security.interfaces.RSAPublicKey;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.RSAPublicKeySpec;
 
 import javax.crypto.Cipher;
 
+import org.bouncycastle.jce.provider.BouncyCastleProvider;
+
 public class AdbKeyPair {
+
+  // Use BC so PKCS8 loads as RSAPrivateCrtKey (Conscrypt's OpenSSLRSAPrivateKey does not).
+  private static final Provider BC_PROVIDER = new BouncyCastleProvider();
 
   public final PrivateKey privateKey;
   public final byte[] publicKeyBytes;
@@ -63,7 +69,7 @@ public class AdbKeyPair {
       privateKeyBytes = adbBase64.decode(data.getBytes());
     }
 
-    tmpPrivateKey = KeyFactory.getInstance("RSA").generatePrivate(new PKCS8EncodedKeySpec(privateKeyBytes));
+    tmpPrivateKey = KeyFactory.getInstance("RSA", BC_PROVIDER).generatePrivate(new PKCS8EncodedKeySpec(privateKeyBytes));
 
     return new AdbKeyPair(tmpPrivateKey, publicKeyBytes);
   }
